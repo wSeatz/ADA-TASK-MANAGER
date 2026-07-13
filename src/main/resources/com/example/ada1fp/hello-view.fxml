@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ada1fp.controllers.HelloController">
+   <padding>
+      <Insets bottom="10" left="10" right="10" top="10" />
+   </padding>
+
+   <Text style="-fx-font-size: 20px; -fx-font-weight: bold;" text="TASK MANAGER" />
+
+   <GridPane alignment="CENTER" hgap="10" vgap="10">
+      <columnConstraints>
+         <ColumnConstraints halignment="RIGHT" minWidth="100" />
+         <ColumnConstraints halignment="LEFT" minWidth="200" />
+      </columnConstraints>
+
+      <Label text="Descripción:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+      <TextField fx:id="descriptionField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+      <Label text="Prioridad:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+      <ComboBox fx:id="priorityComboBox" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+      <Label text="Fecha vencimiento:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+      <DatePicker fx:id="expirationDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+      <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <Button onAction="#onAddTaskClick" style="-fx-background-color: gold; -fx-border-radius: 3;" text="Agregar Tarea" />
+      </HBox>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
+   </GridPane>
+
+   <Separator />
+
+   <GridPane alignment="CENTER" hgap="10" vgap="10">
+      <columnConstraints>
+         <ColumnConstraints halignment="RIGHT" minWidth="100" />
+         <ColumnConstraints halignment="LEFT" minWidth="200" />
+      </columnConstraints>
+
+      <Label text="Buscar por ID:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+      <TextField fx:id="searchIdField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+      <Button onAction="#onSearchTaskClick" style="-fx-background-color: steelblue; -fx-border-radius: 3;" text="Buscar" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
+   </GridPane>
+
+   <Separator />
+
+   <GridPane alignment="CENTER" hgap="10" vgap="10">
+      <columnConstraints>
+         <ColumnConstraints halignment="RIGHT" minWidth="100" />
+         <ColumnConstraints halignment="LEFT" minWidth="200" />
+      </columnConstraints>
+
+      <Label text="Completar por ID:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+      <TextField fx:id="completeByIdField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+      <Button onAction="#onCompleteTaskByIdClick" style="-fx-background-color: tomato; -fx-border-radius: 3;" text="Completar tarea por ID" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
+   </GridPane>
+
+   <Separator />
+
+   <HBox alignment="CENTER" spacing="10">
+      <Button onAction="#onShowHighestPriorityTaskClick" style="-fx-background-color: palegreen; -fx-border-radius: 3;" text="Mostrar tarea más prioritaria" />
+      <Button onAction="#onCompleteHighestPriorityTaskClick" style="-fx-background-color: crimson; -fx-border-radius: 3;" text="Completar tarea más prioritaria" textFill="WHITE" />
+   </HBox>
+   <HBox alignment="CENTER" spacing="10">
+      <children>
+         <Button onAction="#onShowAllTaskClick" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: steelblue; -fx-border-radius: 3;" text="Mostrar todas las tareas" textFill="WHITE" />
+      </children>
+   </HBox>
+
+   <Separator />
+
+   <TextArea fx:id="outputArea" editable="false" style="-fx-font-family: monospace;" VBox.vgrow="ALWAYS" />
+</VBox>
